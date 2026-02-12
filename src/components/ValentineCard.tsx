@@ -10,7 +10,6 @@ const ValentineCard = () => {
   const [isAccepted, setIsAccepted] = useState(false);
 
   const handleNoHover = () => {
-    // On limite le mouvement pour que le bouton ne sorte pas trop de l'écran
     const newX = (Math.random() - 0.5) * 300;
     const newY = (Math.random() - 0.5) * 300;
     setNoButtonPos({ x: newX, y: newY });
@@ -24,7 +23,7 @@ const ValentineCard = () => {
 
     const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
 
-    const interval: any = setInterval(function() {
+    const interval = setInterval(() => {
       const timeLeft = animationEnd - Date.now();
 
       if (timeLeft <= 0) {
@@ -42,7 +41,6 @@ const ValentineCard = () => {
       className="bg-white rounded-[2rem] shadow-2xl border border-rose-100 p-6 sm:p-8 text-center relative overflow-hidden"
       layout
     >
-      {/* Texture de fond subtile */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')]" />
 
       <AnimatePresence mode="wait">

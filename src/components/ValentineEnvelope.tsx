@@ -12,12 +12,12 @@ interface ValentineEnvelopeProps {
 
 const ValentineEnvelope: React.FC<ValentineEnvelopeProps> = ({ onOpen, isOpen, children }) => {
   return (
-    <div className="relative flex items-center justify-center w-full perspective-1000">
+    <div className="relative flex items-center justify-center w-full [perspective:1000px]">
       <div 
         className="relative w-80 h-56 transition-all duration-500"
         onClick={!isOpen ? onOpen : undefined}
       >
-        {/* L'ombre portée au sol */}
+        {/* Ombre portée */}
         <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-4 bg-black/10 blur-xl rounded-full" />
 
         {/* Dos de l'enveloppe */}
@@ -62,13 +62,13 @@ const ValentineEnvelope: React.FC<ValentineEnvelopeProps> = ({ onOpen, isOpen, c
           transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
           style={{ 
             clipPath: 'polygon(0 0, 50% 60%, 100% 0)',
-            backfaceVisibility: 'hidden'
+            transformStyle: 'preserve-3d'
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent" />
         </motion.div>
 
-        {/* Devant de l'enveloppe (Les côtés qui forment la poche) */}
+        {/* Devant de l'enveloppe */}
         <div 
           className="absolute inset-0 bg-rose-100 rounded-lg z-30 shadow-inner border border-rose-200/50" 
           style={{ clipPath: 'polygon(0 0, 50% 60%, 100% 0, 100% 100%, 0 100%)' }}
@@ -76,7 +76,7 @@ const ValentineEnvelope: React.FC<ValentineEnvelopeProps> = ({ onOpen, isOpen, c
           <div className="absolute inset-0 bg-gradient-to-tr from-rose-200/50 to-transparent" />
         </div>
 
-        {/* Sceau en forme de cœur */}
+        {/* Sceau */}
         {!isOpen && (
           <motion.div 
             className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 cursor-pointer"
@@ -93,13 +93,9 @@ const ValentineEnvelope: React.FC<ValentineEnvelopeProps> = ({ onOpen, isOpen, c
                 <Heart fill="currentColor" size={56} />
               </motion.div>
             </div>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="absolute -bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap text-rose-500 font-serif italic text-sm bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm"
-            >
+            <p className="absolute -bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap text-rose-500 font-serif italic text-sm bg-white/50 px-3 py-1 rounded-full backdrop-blur-sm">
               Ouvre-moi...
-            </motion.p>
+            </p>
           </motion.div>
         )}
       </div>
