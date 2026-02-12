@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ValentineEnvelope from '@/components/ValentineEnvelope';
 import ValentineCard from '@/components/ValentineCard';
-import { MadeWithRicardo } from "@/components/MadeWithRicardo";
+import { MadeByClement } from "@/components/MadeByClement";
 import confetti from 'canvas-confetti';
 
 const Index = () => {
@@ -150,7 +150,7 @@ const Index = () => {
       </main>
 
       <div className="fixed bottom-4 w-full">
-        <MadeWithRicardo />
+        <MadeByClement />
       </div>
     </div>
   );
