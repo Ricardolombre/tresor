@@ -11,7 +11,7 @@ interface ValentineCardProps {
 const ValentineCard: React.FC<ValentineCardProps> = ({ isAccepted }) => {
   return (
     <motion.div
-      className="bg-white rounded-xl shadow-xl border border-rose-100 p-4 text-center relative overflow-hidden min-h-[220px] flex flex-col items-center justify-center"
+      className="bg-white rounded-xl shadow-xl border border-rose-100 p-4 text-center relative overflow-hidden min-h-[240px] flex flex-col items-center justify-center"
       layout
     >
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')]" />
@@ -47,10 +47,24 @@ const ValentineCard: React.FC<ValentineCardProps> = ({ isAccepted }) => {
             key="success"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="py-2 space-y-3"
+            className="py-2 space-y-3 w-full"
           >
-            <div className="flex justify-center">
-              <Heart className="text-rose-500 animate-pulse" size={56} fill="currentColor" />
+            <div className="relative w-32 h-32 mx-auto">
+              <motion.div 
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.3, type: "spring" }}
+                className="absolute -top-2 -right-2 z-10 bg-white rounded-full p-1 shadow-md"
+              >
+                <Heart className="text-rose-500 fill-rose-500" size={20} />
+              </motion.div>
+              <div className="w-full h-full rounded-2xl overflow-hidden border-4 border-rose-100 shadow-lg">
+                <img 
+                  src="/WhatsApp Image 2026-02-06 at 22.10.27.jpeg" 
+                  alt="Nous"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
             <div className="space-y-1">
               <h2 className="text-2xl font-serif text-rose-600 font-bold">
